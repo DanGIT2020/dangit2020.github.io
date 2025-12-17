@@ -140,3 +140,41 @@ a#pdf:hover { background: #222; }
 .yui-gf div.first{width:12.3%;}
 
 
+@media print {
+
+  /* 8.5x11 page setup */
+  @page {
+    size: letter;
+    margin: 0.75in;
+  }
+
+  body {
+    font-size: 11pt;
+    line-height: 1.3;
+  }
+
+  /* Prevent breaking inside important blocks */
+  p,
+  .job,
+  .talent,
+  .yui-gf {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Prevent headers from being orphaned */
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  /* Ensure jobs stay together */
+  .job {
+    margin-bottom: 1rem;
+  }
+
+  /* Remove anything not useful on paper (optional) */
+  a[href]:after {
+    content: "";
+  }
+}
